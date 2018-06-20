@@ -1,15 +1,15 @@
 #include <TheThingsNetwork.h>
-    
+
 #define loraSerial Serial1
 #define debugSerial Serial
 
 // Replace REPLACE_ME with TTN_FP_EU868 or TTN_FP_US915
-#define freqPlan TTN_FP_EU868
+#define freqPlan REPLACE_ME
     
 TheThingsNetwork ttn(loraSerial, debugSerial, freqPlan);
     
 void setup() {
-    loraSerial.begin(57600);
+  loraSerial.begin(57600);
   debugSerial.begin(9600);
       
   // Initialize LED output pin
@@ -20,8 +20,12 @@ void setup() {
     
   debugSerial.println("-- STATUS");
   ttn.showStatus();
+  
+void setup() {
+  // put your setup code here, to run once:
+      
 }
-
+      
 void loop() {
   // put your main code here, to run repeatedly:
       
