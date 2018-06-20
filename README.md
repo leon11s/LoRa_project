@@ -1,14 +1,14 @@
-#LoRa project
+# LoRa project
 
-##Supported nodes
+## Supported nodes
 
-##Installation
+## Installation
 
 '''
 pip install Flask
 
 '''
 
-##Description
+## Description
 
-##Implementation
+## Implementation
