@@ -1,14 +1,13 @@
 https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository
 
-Na svojmu kompu prvo povleceö najnovejöo verzijo.
+Na svojmu kompu prvo potegne≈° najnovej≈°o verzijo.
 $ git pull origin master
 
-Potem programiraö svoje zadeve. In jih dodajaö.
+Potem programira≈° svoje zadeve. In jih dodaja≈°.
 $ git add *
 $ git commit
 
 K ti zadeve delajo in k je koda delujoca jo pushas na github.
 
 $ git push origin master
-
 
