@@ -1,8 +1,14 @@
 # REST API IoT Server
-
+https://docs.google.com/document/d/1HSQ3Fe77hnthw8hizqvXJU-qGEPHavMkctvCCadkVbY/edit?pli=1#heading=h.9t094e45sg90
 https://gist.github.com/iros/3426278
+https://developer.github.com/v3/
+https://github.com/rgregg/rest-api-doc-template/blob/master/apis/template.md
 
 ## Installation
+requirements
+Flask - pip install flask 
+pip install Flask-RESTful
+pip install flask_sqlalchemy 
 
 ## Methods
 
