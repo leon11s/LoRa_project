@@ -7,3 +7,22 @@ https://github.com/RAKWireless/RAK811-AT-Command/blob/master/Application%20Notes
 - kolkr vidm se Arduino rab sam za komunikacijo (komp > arduino > RAK). Sam to se sliš brezveze.
 TO-DO
 > pogledat kako se kodo uploada direkt na RAK, da ne rabm arduinota zravn dajat.
+
+
+Arduino + RAK811
+https://www.hackster.io/naresh-krish/using-the-rak811-lora-module-with-arduino-a38de8
+
+
+
+
+
+************
+Lahko se sam spodnjem primeru sledi. Sam še nimamo gatewaya in ne mormo sprobat vse
+************
+
+Getting Started with LoRa RAK811
+https://www.hackster.io/naresh-krish/getting-started-with-the-rak811-lora-node-67f157
+
+Using the board as a standalone LoRa node.
+The RAK 811 already has an AT command based firmware running on it out of the box that supports a wide variety of operations. The board can be used along with an Arduino UNO as well via the serial port which I will cover in another article. The board can also be programmed using the STM32 coIDE. This will also be covered in a different tutorial
+
