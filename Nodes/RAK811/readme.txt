@@ -30,3 +30,10 @@ https://www.hackster.io/naresh-krish/getting-started-with-the-rak811-lora-node-6
 Using the board as a standalone LoRa node.
 The RAK 811 already has an AT command based firmware running on it out of the box that supports a wide variety of operations. The board can be used along with an Arduino UNO as well via the serial port which I will cover in another article. The board can also be programmed using the STM32 coIDE. This will also be covered in a different tutorial
 
+
+- zdownloadaš Realterm za komunikacijo (UART z RAK811). Tm morš met: 8Data bits, 0 parity bits, 1 stop bit.
+Najdeš port.
+Baud je 115200 (default). Klikneš "OPEN".
+Greš pod "Send"
+Tm maš te ukaze "at+<command>". Send ASCII.
+Obkljukan morš met +CR in +LF
