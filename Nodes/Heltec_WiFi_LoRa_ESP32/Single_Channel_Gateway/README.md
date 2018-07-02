@@ -9,9 +9,11 @@ This is a tutorial on how to set Heltec WiFi LoRa ESP32 as a single channel gate
 > Don't plug in the Heltec board yet. 
 2) Install Arduino core for ESP8266 WiFi chip as specified on this [ESP8266 Arduino core GitHub page](https://github.com/esp8266/Arduino)
 3) Install Arduino core for ESP32 WiFi chip as specified on this  [ESP32 Arduino core GitHub page](https://github.com/espressif/arduino-esp32)
+> You can find [ARDUINO_SKETCHBOOK_DIR] in Arduino - File - Preferences - Sketchbook location. There you create hardware/espressif/esp32 and clone esp32 in it 
 4) Download ZIP file from the [Single Channel LoRaWAN Gateway GitHub page](https://github.com/kersing/ESP-1ch-Gateway-v5.0)
 5) Extract the ZIP file (preferably using [7-zip](http://www.7-zip.org/) )
 6) Copy everything from “libraries” folder in the extracted file into your Arduino IDE libraries folder (it is usually something like C:\Users\username\Documents\Arduino\libraries)
+> In the "libraries" are the necessary libraries. You might already have some of them.
 7) Copy folder “ESP-sc-gway” from the extracted file into  your Arduino IDE libraries folder (it is usually something like C:\Users\username\Documents\Arduino\libraries)
 8) Next we need to make some changes in the configuration file located in C:\Users\username\Documents\Arduino\libraries\ESP-sc-gway\ESP-sc-gway.h
 - Change Gateway Ident definitions
@@ -62,12 +64,14 @@ wpas wpa[] = {
   ```
 
 9)  Start the Arduino IDE
-10) Ensure you have installed both the SPIFFS and U8G2 libraries using “Sketch-> Include Library-> Manage Libraries”
-11) Open the sketch “File->Examples->ESP-sc-gway” 
+10) Ensure you have installed both the SPIFFS and U8g2 libraries using “Sketch-> Include Library-> Manage Libraries”
+11) Open the sketch “File->Examples->ESP-sc-gway”
+> The main sketch is ESP-sc-gway
 12) Plug in the Heltec board
-13) Select your board in "Tools > Board" menu and select the COM port
+13) Select your board in "Tools > Board" menu select "Heletec_WIFI_LoRa_32" and select the correct COM port
 > Windows should install all necessary drivers. In case you can't find the port of your device you need to manually install the USB to UART driver from [here](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers).
 14) When the device has booted and connected with your wifi network, find the IP address it is using from your router (or some WiFi network scanning app like Fing) and enter this IP address into a web browser to display a webpage with Gateway details
+> Connect to the Wi-Fi with your phone and use Fing app to find the gateways IP.
 15) Copy the 8 byte “Gateway ID” from the device page
 16) Log into the [TTN](https://www.thethingsnetwork.org/) console and setup a new gateway
 > - You need to tick the “I’m using the legacy packet forwarder” checkbox 
