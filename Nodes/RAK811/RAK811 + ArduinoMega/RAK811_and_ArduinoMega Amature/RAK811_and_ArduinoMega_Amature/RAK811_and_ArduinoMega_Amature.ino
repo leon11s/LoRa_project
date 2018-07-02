@@ -1,27 +1,33 @@
-void setup() {
+//string to hold the response of a command in rak811
+String response = "";
 
+void setup() {
+Serial.println("SETUP");
 //configure Serial1, this could also be a 
 //software serial. 
 Serial1.begin(115200);
 //configure the mail RX0 and TX0 port on arduino
 Serial.begin(115200);
+while(!Serial){
+  ;
+}
+Serial.println("SETUP DONE");
 
 }
 
-//string to hold the response of a command in rak811
-String response = "";
-
 //the famous arduino loop function. runs continuosly
 void loop() {
-
+  Serial.println("LOOP");
+  
   //try getting the version of the board firmware
   sendCommand("at+version\r\n");
+  sendCommand("at+version\r\n");
   //set conn config
-  setConnConfig("dev_eui", "your_dev_eui_here");
-  setConnConfig("app_eui", "your_app_eui_here");
-  setConnConfig("app_key", "your_app_key_here");
+  setConnConfig("dev_eui", "3236313961367E08");
+  setConnConfig("app_eui", "70B3D57ED0010247");
+  setConnConfig("app_key", "5B472E08037D7297CEB5058E14E36690");
   //join the connection
-  sendJoinReq();
+  //sendJoinReq("otaa");
   //send data too gateway
   sendData(1,2,"000000000000007F0000000000000000");
   delay(3000);
