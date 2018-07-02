@@ -66,7 +66,7 @@ wpas wpa[] = {
 9)  Start the Arduino IDE
 10) Ensure you have installed both the SPIFFS and U8g2 libraries using “Sketch-> Include Library-> Manage Libraries”
 11) Open the sketch “File->Examples->ESP-sc-gway”
-> the main sketch s ESP-sc-gway
+> The main sketch is ESP-sc-gway
 12) Plug in the Heltec board
 13) Select your board in "Tools > Board" menu select "Heletec_WIFI_LoRa_32" and select the correct COM port
 > Windows should install all necessary drivers. In case you can't find the port of your device you need to manually install the USB to UART driver from [here](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers).
