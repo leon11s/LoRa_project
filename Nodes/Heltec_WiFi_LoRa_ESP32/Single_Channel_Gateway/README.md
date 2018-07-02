@@ -6,6 +6,7 @@ This is a tutorial on how to set Heltec WiFi LoRa ESP32 as a single channel gate
 ## Setup
 
 1) Install Arduino IDE from the [official page](https://www.arduino.cc/en/Main/Software)
+> Don't plug in the Heltec board yet. 
 2) Install Arduino core for ESP8266 WiFi chip as specified on this [ESP8266 Arduino core GitHub page](https://github.com/esp8266/Arduino)
 3) Install Arduino core for ESP32 WiFi chip as specified on this  [ESP32 Arduino core GitHub page](https://github.com/espressif/arduino-esp32)
 4) Download ZIP file from the [Single Channel LoRaWAN Gateway GitHub page](https://github.com/kersing/ESP-1ch-Gateway-v5.0)
