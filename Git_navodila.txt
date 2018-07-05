@@ -1,4 +1,4 @@
-https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository
+﻿https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository
 
 Na svojmu kompu prvo potegneš najnovejšo verzijo.
 $ git pull origin master
@@ -11,3 +11,4 @@ K ti zadeve delajo in k je koda delujoca jo pushas na github.
 
 $ git push origin master
 
+https://github.com/TheThingsNetwork/workshops/tree/master/The%20Things%20Network
