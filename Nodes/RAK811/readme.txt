@@ -1,23 +1,31 @@
+***********
+Problem!
+**********
+
+RAK811 sam od sebe deluje. Ce se z njim povežeš preko kompa lahko z at+<command> upravljaš z njim.
+Ampak Arduino+RAK811 NE DELUJE.
+
+Z Brinškotom sva šla cez vse.
+Kabli so pravilno vezani (TX na Arduino se veže na TX na RAK811, ker je potem na RAK811 zamenjano).
+Arduino pošilja zadeve.
+RAK811 zna odgovort (ce ne druzga, k ga resetaš Arduino dobi "Welcome to RAK811"). 
+PROBLEM je biu potem, k si dejansko at+<command> poslau. Ker kle ni vec zaznal odgovora (niti ERROR-1).
+Na koncu smo pršli do tega.
+> Arduino pošlje signal.
+> RAK811 cip zazna signal.
+> RAK811 cip ne pošlje odgovora
+
+
+
+
 RAK811 official GitHub.
 https://github.com/RAKWireless/RAK811-AT-Command
 
 How to connect RAK811 to The Things Network
 https://github.com/RAKWireless/RAK811-AT-Command/blob/master/Application%20Notes/How%C2%A0To%C2%A0Connect%C2%A0Lora%C2%A0RAK811%C2%A0to%C2%A0The%20Things%20Network.pdf
 
-- kolkr vidm se Arduino rab sam za komunikacijo (komp > arduino > RAK). Sam to se sliš brezveze.
-TO-DO
-> pogledat kako se kodo uploada direkt na RAK, da ne rabm arduinota zravn dajat.
-
-
-RAK811
-at+<command> list
-https://github.com/RAKWireless/RAK811-AT-Command/blob/master/Software%20Development/RAK811%C2%A0LoRa%C2%A0AT%C2%A0Command%C2%A0V1.3.pdf
-
-
-
-
 ************
-Lahko se sam spodnjem primeru sledi. Sam še nimamo gatewaya in ne mormo sprobat vse
+Lahko se sam spodnjem primeru sledi.
 ************
 
 Getting Started with LoRa RAK811
@@ -33,3 +41,5 @@ Baud je 115200 (default). Klikneš "OPEN".
 Greš pod "Send"
 Tm maš te ukaze "at+<command>". Send ASCII.
 Obkljukan morš met +CR in +LF
+
+

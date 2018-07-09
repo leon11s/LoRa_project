@@ -6,7 +6,7 @@ int counter = 0;
 void setup() {
   //configure Serial1, this could also be a 
   //software serial. 
-  Serial1.begin(115200);
+  Serial2.begin(115200);
   //configure the mail RX0 and TX0 port on arduino
   Serial.begin(115200); 
   
@@ -17,7 +17,7 @@ void setup() {
   Serial.println("(Balki) Serial ostanek: \t"+response);
   response = "";
   
-  while(Serial1.available()){
+  while(Serial2.available()){
     char ch = Serial1.read();
     response += ch;
   }
@@ -32,34 +32,9 @@ void setup() {
 void loop() { 
   Serial.println("(Balki) LOOP");
   //try getting the version of the board firmware 
-  Serial.println("(Balki) VERSION:");
+  //Serial.println("(Balki) VERSION:");
   sendCommand("at+version\r\n"); 
   delay(3000);
-  
- 
- 
- 
- /*
- //set conn config 
- Serial.println("DEV_EUI:");
- setConnConfig("dev_eui", "3236313961367E08");
- Serial.println("APP_EUI:"); 
- setConnConfig("app_eui", "70B3D57ED0010247"); 
- setConnConfig("app_key", "5B472E08037D7297CEB5058E14E36690"); 
- //join the connection 
- sendJoinReq("otaa"); 
- //send data too gateway 
- while (counter < 5){
-  sendData(1,2,"000000000000007F0000000000000000");
-  counter += 5;
-  Serial.println("counter: "+counter); 
-  delay(3000);
- }
- delay(5000);
-*/
-
-
-
 
 } 
 
@@ -69,23 +44,26 @@ void loop() {
 */ 
 
 void sendCommand(String atComm){ 
-  Serial.println("(Balki) Command send to be sent to RAK811 \t"+atComm);
-  Serial.println("(Balki) Response when entering sendCommand() \t"+response);
+  //Serial.println("(Balki) Command send to be sent to RAK811 \t"+atComm);
+  //Serial.println("(Balki) Response when entering sendCommand() \t"+response);
   
   response = ""; 
 
-  Serial.println("(Balki) Response should be nothing now: \t"+response);
-  Serial1.print(atComm);
+  //Serial.println("(Balki) Response should be nothing now: \t"+response);
+
+  //char buf[] = {'a','t','+','v','e','r','s','i','o','n'};
+  //Serial1.write(buf, 10);
+  Serial2.println("lrnfddn");
+  delay(10);
   
-  Serial.println("(Balki) Serial1.print(atComm)");
+  //Serial.println("(Balki) Serial1.print(atComm)");
   Serial.println("(Balki) entering WHILE loop");
-  
-  while(Serial1.available()){ 
-    char ch = Serial1.read(); 
-    response += ch;
-    Serial.println(response);
-  } 
+
+  Serial.println(Serial2.available());
+  response = Serial2.readString(); 
   Serial.println(response);
+   
+  //Serial.println(response);
 }
 
 
