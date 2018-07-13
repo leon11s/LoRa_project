@@ -1,8 +1,8 @@
 #include <TheThingsNetwork.h>
 
 // Set your AppEUI and AppKey
-const char *appEui = "0000000000000000";
-const char *appKey = "00000000000000000000000000000000";
+const char *appEui = "70B3D57ED000FF7B";
+const char *appKey = "2D590642CAF412419A783244A0C971F4";
 
 #define loraSerial Serial1
 #define debugSerial Serial
