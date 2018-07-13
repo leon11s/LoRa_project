@@ -1,4 +1,5 @@
 http://wiki.dragino.com/index.php?title=Connect_to_TTN
+WAN povežeš v router. LAN v svoj komp. Greš v CMD in >ipconfig. Najdeš IP od dragino (gateway).
 
 
 Default:
@@ -10,7 +11,7 @@ ID: root
 PW: loraprojekt
 
 WiFi:
-SSID: LoRa_projekt
+SSID: LoRa_projekt_dragino
 PW: loraprojekt
 
 LoRa FREKVENCA:
