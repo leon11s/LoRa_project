@@ -65,8 +65,7 @@ const unsigned TX_INTERVAL = 10;
 // Pin mapping
 const lmic_pinmap lmic_pins = {
     .nss = 10,
-    .rxtx = 0,
-//    .rxtx = LMIC_UNUSED_PIN,
+    .rxtx = LMIC_UNUSED_PIN,
     .rst = 9,
     .dio = {2, 6, 7},
 };
@@ -84,7 +83,7 @@ void do_send(osjob_t* j){
 }
 
 void onEvent (ev_t ev) {
-    //Serial.print(os_getTime());   (Balki) -> this thros out an error
+    Serial.print(os_getTime());   
     Serial.print(": ");
     Serial.println(ev);
     switch(ev) {
@@ -149,7 +148,7 @@ void onEvent (ev_t ev) {
 }
 
 void setup() {
-    Serial.begin(9600);
+    Serial.begin(115200);
     while(!Serial);
     Serial.println("Starting");
     #ifdef VCC_ENABLE
