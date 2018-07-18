@@ -36,15 +36,15 @@
 // LoRaWAN NwkSKey, network session key
 // This is the default Semtech key, which is used by the early prototype TTN
 // network.
-static const PROGMEM u1_t NWKSKEY[16] = { 0xDA, 0x26, 0x42, 0xDD, 0xAF, 0xCE, 0xAE, 0x64, 0x9E, 0x61, 0xC9, 0xAD, 0x93, 0xDD, 0x13, 0xD9 };
+static const PROGMEM u1_t NWKSKEY[16] = { 0x6F, 0x8A, 0x6F, 0xD7, 0x12, 0xA7, 0x2B, 0x43, 0x3D, 0x76, 0xA4, 0x30, 0x1D, 0x84, 0xA2, 0x88 };
 
 // LoRaWAN AppSKey, application session key
 // This is the default Semtech key, which is used by the early prototype TTN
 // network.
-static const u1_t PROGMEM APPSKEY[16] = { 0x9F, 0x60, 0x71, 0x74, 0xC3, 0x7F, 0x84, 0xE0, 0x89, 0xE5, 0xB8, 0x91, 0x39, 0x20, 0x35, 0x41 };
+static const u1_t PROGMEM APPSKEY[16] = { 0x1F, 0xA1, 0x72, 0x52, 0x93, 0x33, 0xF9, 0xB4, 0x65, 0x43, 0xA1, 0xBB, 0xC1, 0x79, 0xCC, 0x2C };
 
 // LoRaWAN end-device address (DevAddr)
-static const u4_t DEVADDR = 0x26011CAA; // <-- Change this address for every node!
+static const u4_t DEVADDR = 0x26011D4A ; // <-- Change this address for every node!
 
 // These callbacks are only used in over-the-air activation, so they are
 // left empty here (we cannot leave them out completely unless
@@ -53,19 +53,19 @@ void os_getArtEui (u1_t* buf) { }
 void os_getDevEui (u1_t* buf) { }
 void os_getDevKey (u1_t* buf) { }
 
-static uint8_t mydata[] = "Burek";
+static uint8_t mydata[] = "Hello, world!";
 static osjob_t sendjob;
 
 // Schedule TX every this many seconds (might become longer due to duty
 // cycle limitations).
-const unsigned TX_INTERVAL = 10;
+const unsigned TX_INTERVAL = 30;
 
 // Pin mapping
 const lmic_pinmap lmic_pins = {
-    .nss = 6,
+    .nss = 10,
     .rxtx = LMIC_UNUSED_PIN,
-    .rst = 5,
-    .dio = {2, 3, 4},
+    .rst = 9,
+    .dio = {2, 6, 7},
 };
 
 void onEvent (ev_t ev) {
@@ -141,6 +141,8 @@ void do_send(osjob_t* j){
         // Prepare upstream data transmission at the next possible time.
         LMIC_setTxData2(1, mydata, sizeof(mydata)-1, 0);
         Serial.println(F("Packet queued"));
+        Serial.println("Frequency: ");
+        Serial.println(LMIC.freq);
     }
     // Next TX is scheduled after TX_COMPLETE event.
 }
@@ -157,19 +159,7 @@ void setup() {
     #endif
 
     // LMIC init
-    os_init();    // BALKI: Trenutno je kle neka napaka: FAILURE > Libraries\src\radio.h:689
-/* PROGRESS:
- *  Checking out oslmic.c:21 -> os_init()
- * 
- * radio_init()
- *    
- * 
- * 
- * 
- */
-
-
-    
+    os_init();
     // Reset the MAC state. Session and pending data transfers will be discarded.
     LMIC_reset();
 
