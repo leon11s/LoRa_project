@@ -32,6 +32,11 @@
 #include <lmic.h>
 #include <hal/hal.h>
 #include <SPI.h>
+#include "DHT.h" // to simulate sensor readings
+
+#define DHTPIN 5     // what digital pin we're connected to. Leave at 5, since other pins on Dragino might be in use by the shield itself.
+#define DHTTYPE DHT11   // DHT 11
+DHT dht(DHTPIN, DHTTYPE);
 
 // LoRaWAN NwkSKey, network session key
 // This is the default Semtech key, which is used by the prototype TTN
@@ -75,7 +80,19 @@ void do_send(osjob_t* j){
         Serial.println("OP_TXRXPEND, not sending");
     } else {
         // Prepare upstream data transmission at the next possible time.
-        LMIC_setTxData2(1, mydata, sizeof(mydata)-1, 0);
+        
+        float temperature = dht.readTemperature(); // get the temperature from DHT11
+        if (isnan(temperature)) { // if there is some problem getting the temperature it prints out
+          Serial.println("Failed to read from DHT sensor!");
+          return;
+        }
+        Serial.print("Temperature: ");
+        Serial.println(temperature);
+        char result[10];
+        dtostrf(temperature, 6, 2, result); // transform float temperature into char array, since we need to have a char array to send with LoRa
+        Serial.println(result);
+        
+        LMIC_setTxData2(1, result, sizeof(result)-1, 0);
         Serial.println("Packet queued");
         Serial.println(LMIC.freq);
     }
@@ -158,6 +175,9 @@ void setup() {
     delay(1000);
     #endif
 
+    // DHT init
+    dht.begin();
+    
     // LMIC init
     os_init();
     // Reset the MAC state. Session and pending data transfers will be discarded.
