@@ -1,4 +1,5 @@
-
+DOESN'T WORK YET.
+Don't know why, but it wont start sending messages.
 
 
 
